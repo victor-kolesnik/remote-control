@@ -6,7 +6,7 @@ start_dialog() {
 DIALOG=${DIALOG=dialog}
 DIALOG2=${DIALOG2=dialog}
 TMPFCMD="/tmp/cmd.tmp"
-DIRECTORY="/home/victor/rc"
+DIRECTORY="/home/$USER/remotecontrol"
 $DIALOG --clear --title "RemoteControle" \
         --menu 'Choose command to execute' 20 51 10 \
 	"1) Update all" " "\
@@ -99,23 +99,25 @@ cat $TMPFCMD
 
 #Список компьютеров
 #В качестве второго аргумента можно передавать статус 
+
 list_of__enable_PC_dialog() {
-	pc11=$(nmap -sP 192.168.73.11|grep 'Host is up')
-	pc12=$(nmap -sP 192.168.73.12|grep 'Host is up')
-	pc13=$(nmap -sP 192.168.73.13|grep 'Host is up')
-	pc14=$(nmap -sP 192.168.73.14|grep 'Host is up')
-	pc21=$(nmap -sP 192.168.73.21|grep 'Host is up')
-	pc22=$(nmap -sP 192.168.73.22|grep 'Host is up')
-	pc23=$(nmap -sP 192.168.73.23|grep 'Host is up')
-	pc24=$(nmap -sP 192.168.73.24|grep 'Host is up')
-	pc31=$(nmap -sP 192.168.73.31|grep 'Host is up')
-	pc32=$(nmap -sP 192.168.73.32|grep 'Host is up')
-	pc33=$(nmap -sP 192.168.73.33|grep 'Host is up')
-	pc34=$(nmap -sP 192.168.73.34|grep 'Host is up')
-	pc41=$(nmap -sP 192.168.73.41|grep 'Host is up')
-	pc42=$(nmap -sP 192.168.73.42|grep 'Host is up')
-	pc43=$(nmap -sP 192.168.73.43|grep 'Host is up')
-	pc44=$(nmap -sP 192.168.73.44|grep 'Host is up')
+
+	pc11=$(nmap -sP 192.168.73.11 | grep 'Host is up')
+	pc12=$(nmap -sP 192.168.73.12 | grep 'Host is up')
+	pc13=$(nmap -sP 192.168.73.13 | grep 'Host is up')
+	pc14=$(nmap -sP 192.168.73.14 | grep 'Host is up')
+	pc21=$(nmap -sP 192.168.73.21 | grep 'Host is up')
+	pc22=$(nmap -sP 192.168.73.22 | grep 'Host is up')
+	pc23=$(nmap -sP 192.168.73.23 | grep 'Host is up')
+	pc24=$(nmap -sP 192.168.73.24 | grep 'Host is up')
+	pc31=$(nmap -sP 192.168.73.31 | grep 'Host is up')
+	pc32=$(nmap -sP 192.168.73.32 | grep 'Host is up')
+	pc33=$(nmap -sP 192.168.73.33 | grep 'Host is up')
+	pc34=$(nmap -sP 192.168.73.34 | grep 'Host is up')
+	pc41=$(nmap -sP 192.168.73.41 | grep 'Host is up')
+	pc42=$(nmap -sP 192.168.73.42 | grep 'Host is up')
+	pc43=$(nmap -sP 192.168.73.43 | grep 'Host is up')
+	pc44=$(nmap -sP 192.168.73.44 | grep 'Host is up')
 	$DIALOG  --ok-label Enable  --cancel-label Back --radiolist "dfsdsd" 51 90 17 \
 	"pc11 00:1f:c6:b6:29:ae 192.168.73.11" "$pc11" off\
 	"pc12 00:1f:c6:b6:29:88 192.168.73.12" "$pc12" off\
@@ -133,6 +135,7 @@ list_of__enable_PC_dialog() {
 	"pc42 00:1f:c6:86:e0:fe 192.168.73.42" "$pc42" off\
 	"pc43 00:13:74:00:5c:38 192.168.73.43" "$pc43" off\
 	"pc44 00:1f:c6:b6:29:ca 192.168.73.44" "$pc44" off 2> $TMPFCMD 
+
 case $? in
   	0)
   	 #enable

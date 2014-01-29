@@ -1,6 +1,8 @@
 #!/bin/bash
 
-DIRECTORY="/home/victor/rc"
+# Обновление всех PC
+
+DIRECTORY="/home/$USER/remotecontrol"
 host=($(cat $DIRECTORY/remotecontrol.conf | awk '{print $3}'))
 
 for ((i=0; i<=${#host[*]}; i++)); do 

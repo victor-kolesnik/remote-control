@@ -1,7 +1,8 @@
 #!/bin/bash
 
-#Включение всех PC
-DIRECTORY="/home/victor/rc"
+# Включение всех PC
+
+DIRECTORY="/home/$USER/remotecontrol"
 machost=($(cat $DIRECTORY/remotecontrol.conf | awk '{print $2}'))
 
 #Перебираем MAC-adress-а и посылаем magic package                    
