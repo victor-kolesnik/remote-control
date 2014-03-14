@@ -6,7 +6,8 @@ start_dialog() {
 DIALOG=${DIALOG=dialog}
 DIALOG2=${DIALOG2=dialog}
 TMPFCMD="/tmp/cmd.tmp"
-DIRECTORY="/home/$USER/remotecontrol"
+DIRECTORY=$(pwd)
+#DIRECTORY="/home/$USER/remote-control"
 $DIALOG --clear --title "RemoteControle" \
         --menu 'Choose command to execute' 20 51 10 \
 	"1) Update all" " "\
